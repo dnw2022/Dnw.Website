@@ -1,0 +1,9 @@
+@media (max-width: 991px) {
+    #header .header-nav-main nav {
+        background-color: white; /* custom Jeroen 30-nov-2021 */
+    }
+}
+
+#footer .footer-copyright p {
+    padding-left: 20px;
+}

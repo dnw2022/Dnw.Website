@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\css\skins" />
+    <Folder Include="wwwroot\img\clients" />
+    <Folder Include="wwwroot\img\logos" />
+    <Folder Include="wwwroot\img\slides" />
+    <Folder Include="wwwroot\vendor" />
+  </ItemGroup>
+
 </Project>
