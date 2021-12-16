@@ -8,9 +8,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\css\skins" />
-    <Folder Include="wwwroot\img\clients" />
     <Folder Include="wwwroot\img\logos" />
-    <Folder Include="wwwroot\img\slides" />
+    <Folder Include="wwwroot\img\page-header" />
+    <Folder Include="wwwroot\img\Projects" />
+    <Folder Include="wwwroot\img\team" />
     <Folder Include="wwwroot\vendor" />
   </ItemGroup>
 

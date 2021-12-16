@@ -4,6 +4,30 @@
     }
 }
 
-#footer .footer-copyright p {
+#footer .footer-copyright div div p {
     padding-left: 20px;
+}
+
+.thumb-info .thumb-info-wrapper .thumb-info-title {
+    bottom: 5%;
+    font-size: 12px;
+}
+
+.portfolio-list .portfolio-item {
+    border: 1px solid lightgray;
+}
+
+.social-icons li:hover.social-icons-github a {
+    background: #0073b2 !important;
+}
+
+.owl-carousel .porto-big-title {
+    letter-spacing: -5px;
+}
+
+@media (max-width: 575px) {
+    .porto-big-title {
+        letter-spacing: 4px;
+        font-size: 5rem;
+    }
 }
