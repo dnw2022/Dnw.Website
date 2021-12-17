@@ -9,9 +9,6 @@ on:
       - master
   workflow_dispatch:
 
-env:
-  SCM_DO_BUILD: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
