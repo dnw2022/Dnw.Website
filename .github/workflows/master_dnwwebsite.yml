@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  SCM_DO_BUILD_DURING_DEPLOYMENT: false
+  SCM_DO_BUILD: false
 
 jobs:
   build:
