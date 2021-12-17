@@ -54,7 +54,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'dnwwebsite2'
+          app-name: 'dnwwebsite'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8294115A81B34B8A8B963D53389402D6 }}
           package: .
