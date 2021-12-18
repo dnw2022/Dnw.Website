@@ -1,11 +1,13 @@
+@using Dnw.Website.Extensions;
+
 <ul class="nav nav-pills" id="mainNav">
 	<li class="dropdown">
-		<a class="dropdown-item" href="/">
+		<a class="dropdown-item @(Html.IsActiveMenuLink("Home") ? "active current-page-active" : "")" href="/">
 			Home
 		</a>
 	</li>
 	<li class="dropdown">
-        <a class="dropdown-item" href="/Projects">
+        <a class="dropdown-item @(Html.IsActiveMenuLink("Projects") ? "active current-page-active" : "")" href="/Projects">
         	Projects
         </a>
 	</li>
@@ -23,7 +25,7 @@
 		</ul>
 	</li>
 	<li class="dropdown">
-    	<a class="dropdown-item dropdown-toggle" href="#">
+    	<a class="dropdown-item dropdown-toggle @(Html.IsActiveMenuLink("Company", "Team") ? "active current-page-active" : "")" href="#">
     		About us
     	</a>
     	<ul class="dropdown-menu">
