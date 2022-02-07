@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dnw-website-deployment
+spec:
+  selector:
+    matchLabels:
+      app: dnw-website
+  template:
+    metadata:
+      labels:
+        app: dnw-website
+    spec:
+      containers:
+        - name: dnw-website
+          image: acrdnw.azurecr.io/dnw-website:latest
+          # resources:
+          #   limits:
+          #     memory: "128Mi"
+          #     cpu: "500m"
+          ports:
+            - containerPort: 5050
