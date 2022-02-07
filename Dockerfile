@@ -8,7 +8,7 @@ RUN dotnet restore /p:PublishReadyToRun=true
 
 # copy everything else and publish app
 COPY . .
-RUN dotnet publish -c release -o /app --self-contained true --no-restore /p:PublishTrimmed=false /p:PublishReadyToRun=true /p:PublishSingleFile=true
+RUN dotnet publish -c release -o /app -r linux-musl-x64 --self-contained true --no-restore /p:PublishTrimmed=false /p:PublishReadyToRun=true /p:PublishSingleFile=true
 
 # build the runtime image
 FROM mcr.microsoft.com/dotnet/runtime-deps:6.0-alpine
