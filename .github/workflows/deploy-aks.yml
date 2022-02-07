@@ -44,9 +44,9 @@ jobs:
       - name: Build images and push them to Azure Container Service (ACR)
         run: |-
           az acr login --name $AKS_ACR_NAME
-          IMAGE_TAG="{{ env.REPO_NAME }}/{{ env.SITE_NAME }}:latest"
+          IMAGE_TAG="${{ env.REPO_NAME }}/${{ env.SITE_NAME }}:latest"
           docker build -t $IMAGE_TAG -f ./Dockerfile .
-          ACR_TAG="${{ env.AKS_ACR_LOGIN_SERVER }}/{{ env.SITE_NAME }}:latest"
+          ACR_TAG="${{ env.AKS_ACR_LOGIN_SERVER }}/${{ env.SITE_NAME }}:latest"
           docker tag $IMAGE_TAG $ACR_TAG
           docker push $ACR_TAG
           az acr repository list --name $AKS_ACR_NAME --output table
