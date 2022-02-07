@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifiers>linux-musl-arm64;linux-musl-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>
