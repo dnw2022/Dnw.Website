@@ -6,8 +6,6 @@ on:
       - master
 
 env:
-  DOCKER_ID: dnw2022
-  DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
   AKS_CLUSTER_NAME: 'cluster-dnw-aks'
   AKS_RESOURCE_GROUP: 'rg-dnw'
   AKS_ACR_NAME: 'acrdnw'
