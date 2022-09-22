@@ -18,10 +18,18 @@ curl https://8tvctbmdz9.execute-api.ap-southeast-1.amazonaws.com/
 
 # Aws Lambda setup
 
-1. Add nuget package to project:
+1. Configure AWS Lambda in the project:
+
+Add nuget package to project:
 
 ```
 Amazon.Lambda.AspNetCoreServer.Hosting
+```
+
+In Program.cs:
+
+```
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 ```
 
 2. Add json file with defaults:
