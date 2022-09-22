@@ -118,9 +118,9 @@ The certificate request will now appear under 'List certificates' and its status
 
 We now have to go to our DNS provider (in my case CloudFlare) and add CNAME records with the values shown in the certificate details. In this case:
 
-| Type  | Name                                                 | Value                                                              |
-|-------|------------------------------------------------------|--------------------------------------------------------------------|
-| CNAME | _bcb3d837c25f23a8d3dd658d7349764b.dotnet-works.com.  | _d0e9e8424667fa333921826ab771e188.rvctyfnwhz.acm-validations.aws.  |
+| Type  | Name                               | Value                                                             |
+|-------|------------------------------------|-------------------------------------------------------------------|
+| CNAME | _bcb3d837c25f23a8d3dd658d7349764b  | _d0e9e8424667fa333921826ab771e188.rvctyfnwhz.acm-validations.aws  |
 
 After creating the CNAME record(s) the status of the certificate in the AWS console should change to 'Issued' after a while.
 
@@ -144,13 +144,24 @@ Then click 'Create distribution'.
 
 Using the control panel of your DNS provider (CloudFlare in my case) create CNAME records pointing to your AWS CloudFront distribution.
 
-The name of the CNAME record is your custom domain (test2.dotnet-works.com in my case) and the value is the 'Distribution domain name' on the general tab of the AWS CloudFront distribution.
+The name of the CNAME record is your custom domain (www.dotnet-works.com in my case) and the value is the 'Distribution domain name' on the general tab of the AWS CloudFront distribution.
+
+When creating the CNAME records with CloudFlare its also a good idea to check the Proxy checkbox. That offers some protection against (DDos) attacks and prevents excessive bills.
 
 In my case it looks like this:
 
-| Type  | Name  | Value                                 |
-|-------|-------|---------------------------------------|
-| CNAME | test2 | https://d1w77qtjdsniry.cloudfront.net |
+| Type  | Name | Value                         |
+|-------|------|-------------------------------|
+| CNAME | www  | d1w77qtjdsniry.cloudfront.net |
+| CNAME | @    | d1w77qtjdsniry.cloudfront.net |
+
+Note that @ is the root domain (dotnet-works.com).
+
+A rewrite rule might also be a good idea:
+
+| Type               | Setting         | Status Code              | Destination URL                 |
+|--------------------|-----------------|--------------------------|---------------------------------|
+| dotnet-works.com/* | Forwarding URL  | 301 - Permanent Redirect | https://www.dotnet-works.com/$1 |
 
 # CloudFront Cache Invalidation
 
