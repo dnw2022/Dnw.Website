@@ -8,6 +8,7 @@
     "AspNetCoreFunction": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
+        "FunctionName": "Dnw-Website",
         "Handler": "Dnw.Website",
         "Architectures": [ "x86_64" ],
         "Runtime": "provided.al2",
