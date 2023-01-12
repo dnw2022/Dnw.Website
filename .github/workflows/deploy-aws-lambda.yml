@@ -34,7 +34,8 @@ jobs:
         run: |
           dotnet lambda deploy-serverless \
             --stack-name Dnw-Website \
-            --s3-bucket dnw-templates-2022
+            --s3-bucket dnw-templates-2022 \
+            --region ap-southeast-1
 
       - name: Invalidate CloudFront Cache
         run: |
