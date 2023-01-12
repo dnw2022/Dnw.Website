@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
+      AWS_REGION: ap-southeast-1
+      AWS_STACK_NAME: Dnw-Website
+      AWS_S3_BUCKET: dnw-templates-2022
+      AWS_DISTRIBUTION_ID: E2LR1K2KPCV2U8
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
@@ -33,12 +37,13 @@ jobs:
       - name: Deploy to Lambda
         run: |
           dotnet lambda deploy-serverless \
-            --stack-name Dnw-Website \
-            --s3-bucket dnw-templates-2022 \
-            --region ap-southeast-1
+            --stack-name $AWS_STACK_NAME \
+            --s3-bucket $AWS_S3_BUCKET \
+            --region $AWS_REGION
 
       - name: Invalidate CloudFront Cache
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id E2LR1K2KPCV2U8 \
+            --region $AWS_REGION \
+            --distribution-id $AWS_DISTRIBUTION_ID \
             --paths "/*"
